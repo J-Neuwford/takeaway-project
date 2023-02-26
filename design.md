@@ -185,18 +185,18 @@ order.ordered # => ["food_1"]
 #2
 # returns all dishes ordered from the menu
 order = Order.new(menu)
-order.choose("food_1")
-order.choose("food_2")
-order.choose("food_3")
-order.ordered # => ["food_1", "food_2", "food_3"]
+order.choose(food_1)
+order.choose(food_2)
+order.choose(food_3)
+order.ordered # => [food_1, food_2, food_3]
 
 #3
 # returns all dishes ordered from the menu including duplicates
 order = Order.new(menu)
-order.choose("food_1")
-order.choose("food_2")
-order.choose("food_2")
-order.ordered # => ["food_1", "food_2", "food_2"]
+order.choose(food_1)
+order.choose(food_2)
+order.choose(food_2)
+order.ordered # => [food_1, food_2, food_3]
 
 #4
 # throws an error if ordered is called on an empty order
@@ -214,5 +214,5 @@ order.total # => "£5.00"
 #1
 # returns a itemised receipt with total price
 receipt = Receipt.new(order)
-receipt.summary #=> "["food_1: £5.00","food_2: £7.50","food_3: £11.00"] Total: £23.50"
+receipt.summary #=> "dish_1: £5.75, dish_3: £11.00, Total: £16.75"
 ```

@@ -4,9 +4,9 @@ require 'order'
 require 'receipt'
 
 describe 'integration' do
-  xit 'orders two dishes from a menu containing three dishes' do
+  it 'orders two dishes from a menu containing three dishes' do
     menu = Menu.new
-    dish_1 = Dish.new("dish_1", "£5.00")
+    dish_1 = Dish.new("dish_1", "£5.75")
     dish_2 = Dish.new("dish_2", "£7.50")
     dish_3 = Dish.new("dish_3", "£11.00")
     menu.add(dish_1)
@@ -17,6 +17,6 @@ describe 'integration' do
     order.choose(dish_3)
     receipt = Receipt.new(order)
     result = receipt.summary
-    expect(result).to eq '["dish_1: £5.00", "dish_2: £7.50" "dish_3: £11.00"] "Total: £16.00"'
+    expect(result).to eq "dish_1: £5.75, dish_3: £11.00, Total: £16.75"
   end
 end
